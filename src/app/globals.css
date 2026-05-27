@@ -3,24 +3,171 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #E30613;
+  --primary-dark: #B8050F;
+  --primary-light: #FF1A1A;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-tektur);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 16px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+a.bg-primary,
+a[href="#book"],
+a[href="#"],
+button,
+.btn,
+[class*="inline-flex"][class*="font-medium"] {
+  font-family: var(--font-tektur), sans-serif;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease forwards;
+  opacity: 0;
+}
+
+/* Page Transition */
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.page-transition-bg {
+  position: absolute;
+  inset: 0;
+  background: #111111;
+  animation: transition-bg 1.4s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes transition-bg {
+  0% { clip-path: inset(100% 0 0 0); }
+  25% { clip-path: inset(0 0 0 0); }
+  75% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 100% 0); }
+}
+
+.page-transition-content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.page-transition-car {
+  position: absolute;
+  width: 160px;
+  height: 55px;
+  color: var(--primary);
+  animation: car-drive 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes car-drive {
+  0% { left: -200px; }
+  25% { left: 5%; }
+  50% { left: 42%; }
+  75% { left: 80%; }
+  100% { left: calc(100% + 200px); }
+}
+
+.page-transition-smoke-trail {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 60px;
+}
+
+.smoke-puff {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 40%, transparent 70%);
+  opacity: 0;
+  animation: smoke-drift 1s ease-out forwards;
+}
+
+.smoke-puff:nth-child(1) { top: 40%; }
+.smoke-puff:nth-child(2) { top: 55%; width: 24px; height: 24px; }
+.smoke-puff:nth-child(3) { top: 35%; width: 20px; height: 20px; }
+.smoke-puff:nth-child(4) { top: 60%; width: 26px; height: 26px; }
+.smoke-puff:nth-child(5) { top: 45%; width: 18px; height: 18px; }
+.smoke-puff:nth-child(6) { top: 50%; width: 22px; height: 22px; }
+
+@keyframes smoke-drift {
+  0% {
+    left: 42%;
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  20% {
+    opacity: 0.6;
+    transform: scale(0.7);
+  }
+  60% {
+    opacity: 0.3;
+    transform: scale(1.2);
+  }
+  100% {
+    left: 10%;
+    opacity: 0;
+    transform: scale(1.8) translateY(-10px);
+  }
 }
