@@ -1,7 +1,21 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Wrench, Shield, Clock, ThumbsUp } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "About Us — Honest Mobile Auto Repair Indianapolis",
+  description:
+    "Meet the team behind Silverius Mobile Mechanic. Founded in Indianapolis with 10+ years of experience. We bring honest, expert auto repair directly to your driveway.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Silverius Mobile Mechanic",
+    description:
+      "10+ years of experience. Honest pricing. Expert technicians. Indianapolis trusted mobile mechanic team.",
+    url: "/about",
+  },
+};
 
 const teamMembers = [
   {

@@ -1,8 +1,23 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import JsonLd from "@/components/JsonLd";
 import Link from "next/link";
 import { Phone } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Mobile Mechanic Services in Indianapolis",
+  description:
+    "Full range of mobile auto repair services in Indianapolis: oil changes, brake repair, tune-ups, AC service, diagnostics, transmission repair & more. We come to you.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Our Services | Silverius Mobile Mechanic",
+    description:
+      "Oil changes, brake repair, tune-ups, AC service, diagnostics, and more — all at your location in Indianapolis.",
+    url: "/services",
+  },
+};
 
 const services = [
   {
@@ -84,9 +99,36 @@ const services = [
   },
 ];
 
+const servicesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Mobile Mechanic Services",
+  description: "Complete list of mobile auto repair services offered by Silverius Mobile Mechanic in Indianapolis, IN",
+  numberOfItems: 11,
+  itemListElement: services.map((service, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Service",
+      name: service.title,
+      description: service.description,
+      provider: {
+        "@type": "AutoRepair",
+        name: "Silverius Mobile Mechanic",
+      },
+      areaServed: {
+        "@type": "City",
+        name: "Indianapolis",
+        "@id": "https://www.wikidata.org/wiki/Q6346",
+      },
+    },
+  })),
+};
+
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd data={servicesJsonLd} id="services-jsonld" />
       <Header />
       <main>
         {/* Hero Banner */}
