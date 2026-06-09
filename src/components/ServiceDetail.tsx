@@ -2,10 +2,13 @@ import { Check } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 const serviceItems = [
-  "Comprehensive engine oil",
-  "Brake system diagnostics",
-  "Routine/routine oil change",
-  "Major engine repairs/rebuilds",
+  "Routine oil changes & full tune-ups",
+  "Professional brake & radiator services",
+  "Onsite diagnostics & AC repair",
+  "Pre-purchase inspections (PPI) for dealerships",
+  "Clutch, transmission & fuel pump repair",
+  "Specialized VW repair services",
+  "Preventative belt replacement",
 ];
 
 export default function ServiceDetail() {
@@ -20,7 +23,7 @@ export default function ServiceDetail() {
             <h2 className="text-[32px] sm:text-[40px] font-medium text-black mt-2 leading-tight" style={{ fontFamily: "var(--font-tektur)" }}>
               Complete auto care
               <br />
-              under one roof
+              at your location
             </h2>
             <p className="text-[#5e5e5e] text-[16px] mt-3 max-w-[450px] leading-[1.5]">
               From the minor maintenance to major repairs, we provide everything
@@ -33,7 +36,7 @@ export default function ServiceDetail() {
           <ScrollReveal direction="left">
             <div>
               <a
-                href="#book"
+                href="/book"
                 className="inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-none text-[14px] font-medium transition-colors hover:scale-105 active:scale-95 mb-8"
               >
                 View detail
@@ -71,22 +74,22 @@ export default function ServiceDetail() {
             <div className="grid grid-cols-2 gap-3">
               <div className="rounded-xl overflow-hidden h-[280px] group">
                 <img
-                  src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=600&q=80"
-                  alt="Engine repair"
+                  src="/gallery/work-01.jpeg"
+                  alt="Engine and transmission work"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="rounded-xl overflow-hidden h-[280px] group">
                 <img
-                  src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=600&q=80"
+                  src="/gallery/work-08.jpeg"
                   alt="Brake service"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="col-span-2 rounded-xl overflow-hidden h-[200px] group">
                 <img
-                  src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80"
-                  alt="Auto repair shop"
+                  src="/gallery/work-20.jpeg"
+                  alt="Radiator repair"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>

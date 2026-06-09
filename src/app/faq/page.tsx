@@ -46,7 +46,7 @@ const faqCategories = [
     questions: [
       {
         q: "How much does a typical repair cost?",
-        a: "Costs vary depending on the service. We always provide a free estimate before starting any work so you know exactly what to expect — no surprises.",
+        a: "Costs vary depending on the service. We always provide a free estimate before starting any work so you know exactly what to expect  no surprises.",
       },
       {
         q: "Do you offer free estimates?",
@@ -87,7 +87,7 @@ export default function FAQPage() {
         <section className="relative h-[350px] bg-black flex items-center justify-center">
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1920&q=80"
+              src="/gallery/work-10.jpeg"
               alt=""
               className="w-full h-full object-cover opacity-40"
             />

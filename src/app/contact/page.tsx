@@ -10,7 +10,7 @@ const faqs = [
   {
     question: "How does mobile mechanic service work?",
     answer:
-      "We come directly to your location — whether it's your home, office, or roadside. Simply book an appointment, describe your issue, and our certified mechanic will arrive fully equipped to diagnose and repair your vehicle on the spot.",
+      "We come directly to your location  whether it's your home, office, or roadside. Simply book an appointment, describe your issue, and our certified mechanic will arrive fully equipped to diagnose and repair your vehicle on the spot.",
   },
   {
     question: "What areas do you serve?",
@@ -20,7 +20,7 @@ const faqs = [
   {
     question: "Do you provide estimates before starting work?",
     answer:
-      "Absolutely. We always provide a transparent estimate before beginning any repair. There are no hidden fees — you'll know the cost upfront and can approve or decline before we start.",
+      "Absolutely. We always provide a transparent estimate before beginning any repair. There are no hidden fees  you'll know the cost upfront and can approve or decline before we start.",
   },
   {
     question: "What types of repairs can you do on-site?",
@@ -51,14 +51,30 @@ export default function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const [submitError, setSubmitError] = useState("");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setSubmitError("");
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        setSubmitError(data.message || "Something went wrong. Please try again.");
+      } else {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      }
+    } catch {
+      setSubmitError("Unable to connect. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -197,6 +213,11 @@ export default function ContactPage() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+                      {submitError && (
+                        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 text-sm">
+                          {submitError}
+                        </div>
+                      )}
                       <div>
                         <label
                           htmlFor="name"
@@ -275,7 +296,7 @@ export default function ContactPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-primary px-8 py-4 text-base font-bold text-white transition-colors hover:bg-primary-dark disabled:opacity-50 rounded-none"
+                        className="w-full bg-primary px-8 py-4 text-base font-bold text-white transition-colors hover:bg-primary-dark disabled:opacity-50 rounded-none cursor-pointer"
                         style={{ fontFamily: "var(--font-tektur)" }}
                       >
                         {isSubmitting ? "Sending..." : "Send Message"}
@@ -356,7 +377,7 @@ export default function ContactPage() {
                 >
                   (463) 249-8724
                 </a>{" "}
-                — we may still be able to help!
+                 we may still be able to help!
               </p>
             </ScrollReveal>
           </div>

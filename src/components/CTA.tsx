@@ -5,7 +5,7 @@ export default function CTA() {
     <section className="py-20 bg-[#1a1a1a] relative overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1920&q=80"
+          src="/gallery/work-25.jpeg"
           alt=""
           className="w-full h-full object-cover opacity-30"
         />
@@ -22,7 +22,7 @@ export default function CTA() {
             Fast booking. Flexible hours. We&apos;ll get you back on the road.
           </p>
           <a
-            href="#book"
+            href="/book"
             className="mt-8 inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white px-[22px] py-[16px] rounded-none text-[16px] font-medium transition-all h-[46px] hover:scale-105 active:scale-95"
           >
             Service now

@@ -6,8 +6,7 @@ import ScrollReveal from "./ScrollReveal";
 
 const slides = [
   {
-    image:
-      "https://images.unsplash.com/photo-1615906655593-ad0386982a0f?auto=format&fit=crop&w=1200&q=80",
+    image: "/gallery/work-05.jpeg",
     title: "Trusted by drivers year after year",
     stats: [
       { value: "10k Miles", label: "Average distance covered" },
@@ -19,8 +18,7 @@ const slides = [
       "Every mechanic on our team is certified and background-checked for your peace of mind.",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1200&q=80",
+    image: "/gallery/work-12.jpeg",
     title: "Quality parts, quality service",
     stats: [
       { value: "100% OEM Parts", label: "Factory-grade replacements" },
@@ -32,17 +30,16 @@ const slides = [
       "We only use manufacturer-recommended parts to ensure your vehicle performs at its best.",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=1200&q=80",
+    image: "/gallery/work-30.jpeg",
     title: "Convenience at your doorstep",
     stats: [
       { value: "30-Mile Radius", label: "Indianapolis & surrounding areas" },
-      { value: "7 Days a Week", label: "Flexible scheduling available" },
+      { value: "Mon-Sat", label: "Flexible scheduling available" },
       { value: "Free Diagnostics", label: "With any service booking" },
     ],
     badge: "Mobile-First Service",
     badgeDescription:
-      "No need to visit a shop. We bring professional auto care directly to your location.",
+      "No towing, no waiting rooms. We bring professional auto care directly to your location — fully equipped and ready.",
   },
 ];
 
@@ -69,14 +66,14 @@ export default function TrustStats() {
                 Why choose us
               </span>
               <h2 className="text-[32px] sm:text-[40px] font-medium text-black mt-2 leading-tight" style={{ fontFamily: "var(--font-tektur)" }}>
-                The auto repair shop you
+                The mobile mechanic you
                 <br />
                 can rely on
               </h2>
             </div>
             <p className="hidden md:block text-[16px] text-[#5e5e5e] max-w-[400px] leading-[1.5]">
               We&apos;ll keep your car in more than you&apos;d expect from a
-              mobile service — it&apos;s auto safety, convenience, and peace of
+              mobile service  it&apos;s auto safety, convenience, and peace of
               mind.
             </p>
           </div>

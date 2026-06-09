@@ -116,7 +116,7 @@ export default function SearchableDropdown({
           ) : inputValue ? (
             <div className="px-4 py-3">
               <span className="text-[14px] text-[#5e5e5e]">
-                No match — using{" "}
+                No match  using{" "}
               </span>
               <span className="text-[14px] font-medium text-primary">
                 &quot;{inputValue}&quot;

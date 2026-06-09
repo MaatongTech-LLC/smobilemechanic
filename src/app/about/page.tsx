@@ -8,22 +8,19 @@ const teamMembers = [
     name: "Silverius Mbolih",
     role: "Founder & Lead Mechanic",
     bio: "Founded Silverius Mobile Mechanic with a mission to bring honest, expert auto repair directly to customers. Over 10 years of hands-on experience in diagnostics and engine performance.",
-    image:
-      "https://images.pexels.com/photos/7540624/pexels-photo-7540624.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image: "/gallery/work-40.jpeg",
   },
   {
     name: "Marcus Johnson",
     role: "Senior Technician",
-    bio: "Specialist in brakes, suspension, and electrical systems. Marcus brings precision and dedication to every job, ensuring vehicles leave safer than they arrived.",
-    image:
-      "https://images.pexels.com/photos/4439588/pexels-photo-4439588.jpeg?auto=compress&cs=tinysrgb&w=600",
+    bio: "Specialist in brakes, suspension, and electrical systems. Marcus brings precision and dedication to every job, ensuring vehicles are safer after every service.",
+    image: "/gallery/work-42.jpeg",
   },
   {
     name: "Dwayne Carter",
     role: "Mechanic",
     bio: "Expert in oil changes, tune-ups, and preventive maintenance. Dwayne keeps your vehicle running smoothly with thorough, reliable service every time.",
-    image:
-      "https://images.pexels.com/photos/7541976/pexels-photo-7541976.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image: "/gallery/work-44.jpeg",
   },
 ];
 
@@ -44,7 +41,7 @@ const values = [
     icon: Clock,
     title: "Convenience",
     description:
-      "We come to you — at home, at work, or wherever you are. No towing, no waiting rooms, no disruption to your day.",
+      "We come to you  at home, at work, or wherever you are. No towing, no waiting rooms, no disruption to your day.",
   },
   {
     icon: ThumbsUp,
@@ -70,8 +67,8 @@ export default function AboutPage() {
         <section className="relative h-[400px] sm:h-[480px] flex items-center justify-center overflow-hidden mt-[68px]">
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1920&q=80"
-              alt="Mechanic working on car"
+              src="/gallery/work-03.jpeg"
+              alt="Silverius Mobile Mechanic at work"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-black/70" />
@@ -114,7 +111,7 @@ export default function AboutPage() {
                       Silverius Mobile Mechanic was founded with a simple belief:
                       quality auto repair should come to you. After years of
                       watching customers struggle with tow trucks, long wait
-                      times, and overpriced shop fees, we decided there had to be
+                      times, and overpriced repair bills, we decided there had to be
                       a better way.
                     </p>
                     <p>
@@ -128,7 +125,7 @@ export default function AboutPage() {
                       Our mission is straightforward: deliver dealership-quality
                       repairs at fair prices, wherever our customers need us.
                       Whether you are at home, at work, or stranded on the side
-                      of the road, we bring the shop to you.
+                      of the road, we come to you — fully equipped and ready to work.
                     </p>
                   </div>
                 </div>
@@ -136,8 +133,8 @@ export default function AboutPage() {
               <ScrollReveal direction="right">
                 <div className="relative">
                   <img
-                    src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80"
-                    alt="Mobile mechanic servicing a vehicle"
+                    src="/gallery/work-15.jpeg"
+                    alt="Mobile mechanic servicing a vehicle onsite"
                     className="w-full h-[400px] object-cover"
                   />
                   <div className="absolute -bottom-6 -left-6 bg-primary text-white p-6 hidden sm:block">
@@ -299,12 +296,12 @@ export default function AboutPage() {
                 </h2>
                 <p className="text-[#5e5e5e] text-[16px] mt-4 max-w-[500px] mx-auto leading-[1.6]">
                   Book your appointment today and let our certified mobile
-                  mechanics come to you. No shop visits, no hassle — just expert
+                  mechanics come to you. No waiting rooms, no hassle — just expert
                   repair at your location.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
                   <a
-                    href="/#book"
+                    href="/book"
                     className="inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-none text-[16px] font-medium transition-colors"
                   >
                     Book a Service

@@ -37,11 +37,11 @@ export default function Hero() {
         <p
           className={`text-[17px] sm:text-[19px] font-normal text-gray-200 mt-5 max-w-[548px] leading-[1.5] transition-all duration-1000 delay-300 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          From oil changes to full diagnostics—trusted, fast, and affordable
+          From oil changes to full diagnosticstrusted, fast, and affordable
           auto service for all makes and models.
         </p>
         <a
-          href="#book"
+          href="/book"
           className={`mt-8 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-none text-[16px] font-medium transition-all duration-1000 delay-500 inline-flex items-center justify-center hover:scale-105 active:scale-95 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           Service now

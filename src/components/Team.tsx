@@ -4,20 +4,17 @@ const teamMembers = [
   {
     name: "Silverius Mbolih",
     role: "Founder & Lead Mechanic. Expert in diagnostics and engine performance.",
-    image:
-      "https://images.pexels.com/photos/7540624/pexels-photo-7540624.jpeg?auto=compress&cs=tinysrgb&w=300",
+    image: "/gallery/work-40.jpeg",
   },
   {
     name: "Marcus Johnson",
     role: "Senior Technician. Specialist in brakes, suspension, and electrical systems.",
-    image:
-      "https://images.pexels.com/photos/4439588/pexels-photo-4439588.jpeg?auto=compress&cs=tinysrgb&w=300",
+    image: "/gallery/work-42.jpeg",
   },
   {
     name: "Dwayne Carter",
     role: "Mechanic. Expert in oil changes, tune-ups, and preventive maintenance.",
-    image:
-      "https://images.pexels.com/photos/7541976/pexels-photo-7541976.jpeg?auto=compress&cs=tinysrgb&w=300",
+    image: "/gallery/work-44.jpeg",
   },
 ];
 
@@ -37,7 +34,7 @@ export default function Team() {
                 by trust.
               </h2>
               <p className="text-[#5e5e5e] text-[16px] mt-3 max-w-[500px] leading-[1.5]">
-                We&apos;re more than just mechanics — we&apos;re your trusted
+                We&apos;re more than just mechanics  we&apos;re your trusted
                 partners in keeping your vehicle safe, reliable, and ready for
                 the road.
               </p>

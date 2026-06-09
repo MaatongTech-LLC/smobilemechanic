@@ -1,4 +1,4 @@
-import { Shield, Wrench, Award, Star } from "lucide-react";
+import { Shield, Wrench, Award, Car } from "lucide-react";
 import DashedCircle from "./DashedCircle";
 import ScrollReveal from "./ScrollReveal";
 
@@ -7,25 +7,25 @@ const services = [
     icon: Shield,
     title: "Expertise you can trust",
     description:
-      "Our team brings industry-leading expertise and certifications to every job. Trust professionals at SMS. This ensures...",
+      "From oil changes to full engine rebuilds — our certified team handles it all with professional-grade tools and years of hands-on experience.",
   },
   {
     icon: Wrench,
-    title: "Comprehensive services",
+    title: "11+ specialized services",
     description:
-      "From routine maintenance to major repairs, we offer a full range of auto care. From the factory floor to your driveway, our services...",
+      "Brakes, AC, tune-ups, transmission, fuel pumps, belts, radiators, diagnostics, and more. Complete auto care that comes to you.",
+  },
+  {
+    icon: Car,
+    title: "Pre-purchase inspections",
+    description:
+      "Partnering with local dealerships big and small to provide thorough vehicle inspections. Know exactly what you're buying before you sign.",
   },
   {
     icon: Award,
-    title: "Quality & reliability",
+    title: "VW & all-make specialist",
     description:
-      "Our dedication to quality is second to none, offering reliable service from the factory floor for all vehicles...",
-  },
-  {
-    icon: Star,
-    title: "Quality & reliability",
-    description:
-      "Our dedication to quality and certifications to every job. Trust professionals at SMS. This ensures...",
+      "Specialized Volkswagen expertise plus full-service repair for every make and model. German engineering? No problem.",
   },
 ];
 

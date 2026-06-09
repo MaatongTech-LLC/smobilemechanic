@@ -142,7 +142,7 @@ export default function TermsPage() {
                     Intellectual Property
                   </h2>
                   <p className="text-gray-600 leading-relaxed">
-                    All content on this website — including text, graphics, logos, and images — is the property of Silverius Mobile Mechanic LLC and is protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works without our written permission.
+                    All content on this website  including text, graphics, logos, and images  is the property of Silverius Mobile Mechanic LLC and is protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works without our written permission.
                   </p>
                 </div>
 

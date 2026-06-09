@@ -7,48 +7,42 @@ const testimonials = [
     verified: true,
     rating: 5,
     text: "I had a check engine light come on and they ran a complete diagnostic in my driveway. Highly professional. 10/10.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80",
+    initials: "RT",
   },
   {
     name: "Alex M.",
     verified: true,
     rating: 5,
-    text: "Brakes were done the same day, greats of service from the team. Drivers recommend.",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80",
+    text: "Brakes were done the same day I called. Great service from the team. Highly recommend to any driver in Indy.",
+    initials: "AM",
   },
   {
-    name: "Christy",
+    name: "Christy W.",
     verified: false,
     rating: 5,
-    text: "They had my braking for home. Always on time. Definitely going to tell my friends.",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80",
+    text: "They replaced my brake pads right at my house. Always on time and very professional. Definitely telling my friends.",
+    initials: "CW",
   },
   {
-    name: "Robert T.",
+    name: "James D.",
     verified: false,
     rating: 5,
-    text: "I love a second opinion on it, but Tip: Be clear in the context. A clean environment for the mechanics and expertise.",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80",
+    text: "Got a pre-purchase inspection done before buying my truck. Silverius was thorough and honest — saved me from a bad deal.",
+    initials: "JD",
   },
   {
-    name: "Mike Bankson",
+    name: "Mike B.",
     verified: false,
     rating: 5,
-    text: "This is an excellent mechanic shop that's definitely worth checking. Comes to me any day. Great service!",
-    image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80",
+    text: "This is an excellent mobile mechanic service that's definitely worth checking out. Comes to me any day. Great service!",
+    initials: "MB",
   },
   {
     name: "Sarah K.",
     verified: true,
     rating: 5,
-    text: "Required our service on our home to mph. 11k AC well and the parts for again.",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80",
+    text: "Had my AC recharged at home during the summer. Fast, affordable, and it works perfectly now. Will be calling again!",
+    initials: "SK",
   },
 ];
 
@@ -71,12 +65,10 @@ export default function Testimonials() {
             <ScrollReveal key={index} delay={index * 80}>
               <div className="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:shadow-md transition-shadow duration-300">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-full overflow-hidden">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span className="text-primary text-[14px] font-bold">
+                      {testimonial.initials}
+                    </span>
                   </div>
                   <div>
                     <div className="flex items-center gap-1">

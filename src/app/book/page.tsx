@@ -7,6 +7,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import Dropdown from "@/components/Dropdown";
 import DatePicker from "@/components/DatePicker";
 import SearchableDropdown from "@/components/SearchableDropdown";
+import RacingConfetti from "@/components/RacingConfetti";
 
 const CAR_MAKES = [
   "Acura", "Alfa Romeo", "Audi", "BMW", "Buick", "Cadillac", "Chevrolet",
@@ -16,14 +17,17 @@ const CAR_MAKES = [
   "Porsche", "Ram", "Subaru", "Tesla", "Toyota", "Volkswagen", "Volvo",
 ];
 import {
+  Droplets,
   Wrench,
   Disc3,
-  Droplets,
-  Battery,
   Thermometer,
+  Wind,
   Search,
-  CircleDot,
+  ClipboardCheck,
   Cog,
+  Fuel,
+  RefreshCw,
+  Car,
   HelpCircle,
   CheckCircle,
   ChevronLeft,
@@ -31,14 +35,17 @@ import {
 } from "lucide-react";
 
 const SERVICES = [
-  { id: "engine", label: "Engine Repair", icon: Wrench },
-  { id: "brakes", label: "Brake Service", icon: Disc3 },
   { id: "oil", label: "Oil Change", icon: Droplets },
-  { id: "battery", label: "Battery Service", icon: Battery },
-  { id: "cooling", label: "Cooling System", icon: Thermometer },
-  { id: "diagnostics", label: "Diagnostics", icon: Search },
-  { id: "suspension", label: "Suspension & Steering", icon: CircleDot },
-  { id: "transmission", label: "Transmission", icon: Cog },
+  { id: "tuneup", label: "Full Tune-Up", icon: Wrench },
+  { id: "brakes", label: "Brake Service", icon: Disc3 },
+  { id: "radiator", label: "Radiator Repair", icon: Thermometer },
+  { id: "ac", label: "Auto AC Service", icon: Wind },
+  { id: "diagnostics", label: "Car Diagnostics", icon: Search },
+  { id: "ppi", label: "Pre-Purchase Inspection", icon: ClipboardCheck },
+  { id: "transmission", label: "Clutch & Transmission", icon: Cog },
+  { id: "fuelpump", label: "Fuel Pump Repair", icon: Fuel },
+  { id: "belts", label: "Belt Replacement", icon: RefreshCw },
+  { id: "vw", label: "VW Repair", icon: Car },
   { id: "other", label: "Other", icon: HelpCircle },
 ];
 
@@ -135,13 +142,32 @@ function BookPageContent() {
     return newErrors.length === 0;
   };
 
-  const handleNext = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleNext = async () => {
     if (!validateStep()) return;
 
     if (currentStep < STEPS.length - 1) {
       setCurrentStep((prev) => prev + 1);
     } else {
-      setSubmitted(true);
+      setIsSubmitting(true);
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(booking),
+        });
+        if (!res.ok) {
+          const data = await res.json();
+          setErrors(data.errors ? Object.values(data.errors).flat() as string[] : ["Something went wrong. Please try again."]);
+        } else {
+          setSubmitted(true);
+        }
+      } catch {
+        setErrors(["Unable to connect. Please try again later."]);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -158,17 +184,28 @@ function BookPageContent() {
     const selectedService = SERVICES.find((s) => s.id === booking.service);
     return (
       <div className="min-h-screen bg-white">
-        <div className="bg-black py-20 text-center">
+        <RacingConfetti />
+        <div className="bg-black py-20 text-center relative overflow-hidden">
+          <div className="absolute inset-0 flex items-center justify-center opacity-10">
+            <svg className="w-40 h-40 text-primary" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14.83 11.29L10.59 7.05a1 1 0 00-1.42 0 1 1 0 000 1.41L12.71 12l-3.54 3.54a1 1 0 000 1.41 1 1 0 001.42 0l4.24-4.24a1 1 0 000-1.42z"/>
+            </svg>
+          </div>
           <h1
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white relative"
             style={{ fontFamily: "var(--font-tektur)" }}
           >
             Booking Confirmed
           </h1>
+          <p className="text-primary font-medium text-sm mt-3 uppercase tracking-widest relative">
+            You&apos;re all set — we&apos;re on our way!
+          </p>
         </div>
         <div className="max-w-2xl mx-auto px-4 py-16">
           <div className="text-center mb-10">
-            <CheckCircle className="w-20 h-20 text-green-500 mx-auto mb-4" />
+            <div className="relative inline-block">
+              <CheckCircle className="w-20 h-20 text-green-500 mx-auto mb-4 animate-[bounce_0.6s_ease-in-out]" />
+            </div>
             <h2
               className="text-2xl font-bold mb-2"
               style={{ fontFamily: "var(--font-tektur)" }}
@@ -551,7 +588,7 @@ function BookPageContent() {
                   className="w-full border border-gray-200 px-4 py-3 rounded-none outline-none focus:border-primary transition-colors"
                 />
                 <p className="text-xs text-gray-400 mt-1">
-                  We come to you — provide the address where you&apos;d like the
+                  We come to you  provide the address where you&apos;d like the
                   service performed.
                 </p>
               </div>
@@ -574,10 +611,11 @@ function BookPageContent() {
           )}
           <button
             onClick={handleNext}
-            className="flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-none font-semibold hover:bg-red-700 transition-colors"
+            disabled={isSubmitting}
+            className="flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-none font-semibold hover:bg-red-700 transition-colors disabled:opacity-50"
           >
-            {currentStep === STEPS.length - 1 ? "Confirm Booking" : "Next"}
-            {currentStep < STEPS.length - 1 && (
+            {isSubmitting ? "Submitting..." : currentStep === STEPS.length - 1 ? "Confirm Booking" : "Next"}
+            {!isSubmitting && currentStep < STEPS.length - 1 && (
               <ChevronRight className="w-4 h-4" />
             )}
           </button>

@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 
 const WORDS = [
-  "To", "deliver", "top-quality", "and", "maintenance", "services",
+  "To", "deliver", "top-quality", "repair", "and", "maintenance", "services",
   "with", "honesty,", "precision,", "and", "care.", "Ensuring",
-  "every", "driver", "leaves", "our", "shop", "with", "a", "safer,",
+  "every", "driver", "gets", "back", "on", "the", "road", "with", "a", "safer,",
   "smoother,", "and", "more", "reliable", "vehicle.",
 ];
 

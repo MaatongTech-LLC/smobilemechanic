@@ -59,7 +59,7 @@ html {
 }
 
 a.bg-primary,
-a[href="#book"],
+a[href="/book"],
 a[href="#"],
 button,
 .btn,
@@ -99,6 +99,37 @@ button,
   100% { clip-path: inset(0 0 100% 0); }
 }
 
+.page-transition-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.page-transition-text-inner {
+  font-family: var(--font-tektur), sans-serif;
+  font-size: clamp(28px, 5vw, 56px);
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.02em;
+  display: block;
+  clip-path: inset(0 100% 0 0);
+  opacity: 1;
+  animation: text-reveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes text-reveal {
+  0% { clip-path: inset(0 100% 0 0); opacity: 1; }
+  20% { clip-path: inset(0 95% 0 0); opacity: 1; }
+  50% { clip-path: inset(0 40% 0 0); opacity: 1; }
+  65% { clip-path: inset(0 0% 0 0); opacity: 1; }
+  75% { clip-path: inset(0 0% 0 0); opacity: 0; }
+  100% { clip-path: inset(0 0% 0 0); opacity: 0; }
+}
+
 .page-transition-content {
   position: absolute;
   top: 50%;
@@ -112,10 +143,11 @@ button,
 
 .page-transition-car {
   position: absolute;
-  width: 160px;
-  height: 55px;
+  width: 180px;
+  height: 80px;
   color: var(--primary);
   animation: car-drive 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  filter: drop-shadow(0 4px 12px rgba(227, 6, 19, 0.3));
 }
 
 @keyframes car-drive {

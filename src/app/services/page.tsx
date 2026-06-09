@@ -6,68 +6,81 @@ import { Phone } from "lucide-react";
 
 const services = [
   {
-    id: "engine",
-    title: "Engine Repair",
+    id: "oil",
+    title: "Routine Oil Change",
     description:
-      "From minor tune-ups to complete engine rebuilds. We diagnose and fix engine problems on-site with professional-grade tools and OEM parts.",
-    image:
-      "https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "Conventional, synthetic blend, and full synthetic oil changes with premium filters — performed at your home or office. Keep your engine running smooth.",
+    image: "/gallery/work-12.jpeg",
+  },
+  {
+    id: "tuneup",
+    title: "Full Tune-Up",
+    description:
+      "Complete engine tune-up including spark plugs, filters, fluid top-offs, and system checks. Restore your vehicle's performance and fuel efficiency.",
+    image: "/gallery/work-03.jpeg",
   },
   {
     id: "brakes",
-    title: "Brake Service",
+    title: "Professional Brake Service",
     description:
-      "Inspection, repair, and replacement of brake pads, rotors, calipers, and brake lines. Your safety is our priority.",
-    image:
-      "https://images.pexels.com/photos/3642618/pexels-photo-3642618.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "Inspection, repair, and replacement of brake pads, rotors, calipers, and brake lines. Your safety is our top priority — we don't cut corners.",
+    image: "/gallery/work-08.jpeg",
   },
   {
-    id: "oil",
-    title: "Oil Change",
+    id: "radiator",
+    title: "Radiator Repair",
     description:
-      "Conventional, synthetic blend, and full synthetic oil changes with premium filters — performed at your home or office.",
-    image:
-      "https://images.pexels.com/photos/4116193/pexels-photo-4116193.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "Fast and reliable radiator repair — from leak fixes to full replacements. We handle flushes, hose repairs, and complete cooling system overhauls.",
+    image: "/gallery/work-20.jpeg",
   },
   {
-    id: "battery",
-    title: "Battery Service",
+    id: "ac",
+    title: "Auto AC Service",
     description:
-      "Battery testing, jump starts, and full replacements on the spot. We carry top-brand car batteries to get you back on the road.",
-    image:
-      "https://images.pexels.com/photos/4489732/pexels-photo-4489732.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
-  {
-    id: "cooling",
-    title: "Cooling System",
-    description:
-      "Radiators, water pumps, thermostats, and coolant hoses. We handle flushes, leak repairs, and complete cooling system overhauls.",
-    image:
-      "https://images.pexels.com/photos/7854074/pexels-photo-7854074.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "Complete auto AC diagnostics, recharging, and repair. Stay cool in Indiana summers with our professional climate control services.",
+    image: "/gallery/work-15.jpeg",
   },
   {
     id: "diagnostics",
-    title: "Diagnostics",
+    title: "Onsite Car Diagnostics",
     description:
-      "Advanced diagnostic scanners to pinpoint issues quickly. We read codes, perform live data analysis, and explain what your vehicle needs.",
-    image:
-      "https://images.pexels.com/photos/4489765/pexels-photo-4489765.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "Advanced diagnostic scanners to pinpoint issues at your location. We read codes, perform live data analysis, and explain exactly what your vehicle needs.",
+    image: "/gallery/work-05.jpeg",
   },
   {
-    id: "suspension",
-    title: "Suspension & Steering",
+    id: "ppi",
+    title: "Pre-Purchase Inspection",
     description:
-      "Shocks, struts, ball joints, tie rods, and control arms. We restore your vehicle's handling and ride comfort.",
-    image:
-      "https://images.pexels.com/photos/4116220/pexels-photo-4116220.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "Thorough pre-purchase car inspections for buyers and dealerships — big and small. Know exactly what you're buying before you sign. We partner with local dealers.",
+    image: "/gallery/work-25.jpeg",
   },
   {
     id: "transmission",
-    title: "Transmission",
+    title: "Clutch & Transmission",
     description:
-      "Fluid changes, filter replacements, and shifting problem diagnosis. We service both automatic and manual transmissions.",
-    image:
-      "https://images.pexels.com/photos/4489728/pexels-photo-4489728.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "Expert clutch and transmission repair — from fluid changes and filter replacements to complete rebuilds. We service both automatic and manual transmissions.",
+    image: "/gallery/work-01.jpeg",
+  },
+  {
+    id: "fuelpump",
+    title: "Fuel Pump Repair",
+    description:
+      "Efficient fuel pump diagnosis and replacement. If your car struggles to start or loses power, we'll get your fuel system working reliably again.",
+    image: "/gallery/work-30.jpeg",
+  },
+  {
+    id: "belts",
+    title: "Belt Replacement",
+    description:
+      "Preventative serpentine belt, timing belt, and accessory belt replacement. Avoid costly breakdowns with proactive belt maintenance.",
+    image: "/gallery/work-10.jpeg",
+  },
+  {
+    id: "vw",
+    title: "Specialized VW Repair",
+    description:
+      "Dedicated Volkswagen expertise — from TDI engines to DSG transmissions. We know VW inside and out, with specialized tools and knowledge for German engineering.",
+    image: "/gallery/work-35.jpeg",
   },
 ];
 
@@ -80,7 +93,7 @@ export default function ServicesPage() {
         <section className="relative pt-[68px]">
           <div className="relative h-[340px] sm:h-[400px] bg-[#1a1a1a] overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80"
+              src="/gallery/work-05.jpeg"
               alt=""
               className="absolute inset-0 w-full h-full object-cover opacity-40"
             />
@@ -96,8 +109,8 @@ export default function ServicesPage() {
                   Our Services
                 </h1>
                 <p className="text-gray-300 text-[16px] sm:text-[18px] mt-4 max-w-[550px] mx-auto leading-[1.5]">
-                  Professional mobile auto repair — we bring the shop to you,
-                  anywhere in Indianapolis.
+                  Professional mobile auto repair — we come to you,
+                  anywhere in Indianapolis and surrounding areas.
                 </p>
               </ScrollReveal>
             </div>
@@ -174,7 +187,7 @@ export default function ServicesPage() {
         <section className="py-20 bg-[#1a1a1a] relative overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1920&q=80"
+              src="/gallery/work-01.jpeg"
               alt=""
               className="w-full h-full object-cover opacity-30"
             />
@@ -192,7 +205,7 @@ export default function ServicesPage() {
               </h2>
               <p className="text-gray-300 text-[16px] mt-4 max-w-[500px] mx-auto leading-[1.5]">
                 Book your mobile repair today. We&apos;ll come to you anywhere
-                in Indianapolis — home, work, or roadside.
+                in Indianapolis  home, work, or roadside.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                 <Link
