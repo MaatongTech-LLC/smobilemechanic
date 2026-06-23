@@ -59,4 +59,4 @@ Deployed via Vercel or any static hosting that supports Next.js.
 
 ---
 
-Built by [MaatongTech LLC](https://maatonggroup.com/usa)
+Built with love by [MaatongTech LLC](https://maatonggroup.com/usa)
