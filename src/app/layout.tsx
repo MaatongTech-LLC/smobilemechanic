@@ -20,6 +20,13 @@ const SITE_URL = "https://smobilemechanic.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  icons: {
+    icon: [
+      { url: "/logo-mark.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: "/favicon.png",
+  },
   title: {
     default: "Silverius Mobile Mechanic | Mobile Auto Repair Indianapolis, IN",
     template: "%s | Silverius Mobile Mechanic",
@@ -109,7 +116,7 @@ const localBusinessJsonLd = {
   telephone: "+14632498724",
   email: "contact@smobilemechanic.com",
   image: `${SITE_URL}/og-image.jpg`,
-  logo: `${SITE_URL}/favicon.ico`,
+  logo: `${SITE_URL}/logo.svg`,
   priceRange: "$$",
   currenciesAccepted: "USD",
   paymentAccepted: "Cash, Credit Card, Debit Card, Zelle, Venmo, CashApp",
@@ -141,15 +148,9 @@ const localBusinessJsonLd = {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "07:00",
-      closes: "18:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Saturday",
-      opens: "08:00",
-      closes: "16:00",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "00:00",
+      closes: "23:59",
     },
   ],
   sameAs: [],
