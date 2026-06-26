@@ -20,7 +20,7 @@ const faqCategories = [
       },
       {
         q: "What are your hours of operation?",
-        a: "We're available Monday through Friday from 7:00 AM to 6:00 PM, and Saturday from 8:00 AM to 4:00 PM. We're closed on Sundays.",
+        a: "We're available 24/7. Day or night, weekends and holidays — we're here when you need us.",
       },
     ],
   },

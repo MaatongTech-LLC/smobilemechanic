@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Silverius Mobile Mechanic",
     description:
-      "Need a mobile mechanic in Indianapolis? Call (463) 249-8724 or fill out our contact form. Mon-Fri 7AM-6PM, Sat 8AM-4PM.",
+      "Need a mobile mechanic in Indianapolis? Call (463) 249-8724 or fill out our contact form. Available 24/7.",
     url: "/contact",
   },
 };

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -27,11 +28,16 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="flex items-center justify-between h-[68px]">
-          <Link href="/" className="flex items-center">
-            <span className="text-[20px] font-bold text-black" style={{ fontFamily: "var(--font-tektur)" }}>
-              Silverius Mobile Mechanic
-            </span>
+        <div className="flex items-center justify-between h-[90px]">
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/logo.svg"
+              alt="Silverius Mobile Mechanic"
+              width={140}
+              height={116}
+              className="h-[80px] w-auto"
+              priority
+            />
           </Link>
 
           <nav className="hidden md:flex items-center gap-[18px]">
