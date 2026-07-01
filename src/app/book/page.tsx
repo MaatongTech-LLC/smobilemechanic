@@ -17,37 +17,21 @@ const CAR_MAKES = [
   "Porsche", "Ram", "Subaru", "Tesla", "Toyota", "Volkswagen", "Volvo",
 ];
 import {
-  Droplets,
   Wrench,
-  Disc3,
-  Thermometer,
-  Wind,
-  Search,
-  ClipboardCheck,
-  Cog,
-  Fuel,
-  RefreshCw,
-  Car,
-  HelpCircle,
   CheckCircle,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
 
-const SERVICES = [
-  { id: "oil", label: "Oil Change", icon: Droplets },
-  { id: "tuneup", label: "Full Tune-Up", icon: Wrench },
-  { id: "brakes", label: "Brake Service", icon: Disc3 },
-  { id: "radiator", label: "Radiator Repair", icon: Thermometer },
-  { id: "ac", label: "Auto AC Service", icon: Wind },
-  { id: "diagnostics", label: "Car Diagnostics", icon: Search },
-  { id: "ppi", label: "Pre-Purchase Inspection", icon: ClipboardCheck },
-  { id: "transmission", label: "Clutch & Transmission", icon: Cog },
-  { id: "fuelpump", label: "Fuel Pump Repair", icon: Fuel },
-  { id: "belts", label: "Belt Replacement", icon: RefreshCw },
-  { id: "vw", label: "VW Repair", icon: Car },
-  { id: "other", label: "Other", icon: HelpCircle },
-];
+interface ApiService {
+  id: number;
+  name: string;
+  slug: string;
+  description: string | null;
+  image_url: string | null;
+  price_from: string | null;
+  duration_minutes: number | null;
+}
 
 const TIME_SLOTS = [
   "7:00 AM",
@@ -84,6 +68,8 @@ function BookPageContent() {
   const [currentStep, setCurrentStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
+  const [services, setServices] = useState<ApiService[]>([]);
+  const [loadingServices, setLoadingServices] = useState(true);
   const [booking, setBooking] = useState<BookingData>({
     service: "",
     year: "",
@@ -101,13 +87,24 @@ function BookPageContent() {
   const [preselected, setPreselected] = useState(false);
 
   useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/services?per_page=50`)
+      .then((res) => res.json())
+      .then((json) => {
+        setServices(json.data || []);
+        setLoadingServices(false);
+      })
+      .catch(() => setLoadingServices(false));
+  }, []);
+
+  useEffect(() => {
+    if (services.length === 0) return;
     const serviceParam = searchParams.get("service");
-    if (serviceParam && SERVICES.some((s) => s.id === serviceParam)) {
+    if (serviceParam && services.some((s) => s.slug === serviceParam)) {
       setBooking((prev) => ({ ...prev, service: serviceParam }));
       setCurrentStep(1);
       setPreselected(true);
     }
-  }, [searchParams]);
+  }, [searchParams, services]);
 
   const updateBooking = (field: keyof BookingData, value: string) => {
     setBooking((prev) => ({ ...prev, [field]: value }));
@@ -181,7 +178,7 @@ function BookPageContent() {
   const years = Array.from({ length: 27 }, (_, i) => (2026 - i).toString());
 
   if (submitted) {
-    const selectedService = SERVICES.find((s) => s.id === booking.service);
+    const selectedService = services.find((s) => s.slug === booking.service);
     return (
       <div className="min-h-screen bg-white">
         <RacingConfetti />
@@ -230,7 +227,7 @@ function BookPageContent() {
               <div className="flex justify-between border-b border-gray-100 pb-2">
                 <span className="text-gray-500">Service</span>
                 <span className="font-medium">
-                  {selectedService?.label}
+                  {selectedService?.name}
                 </span>
               </div>
               <div className="flex justify-between border-b border-gray-100 pb-2">
@@ -314,17 +311,16 @@ function BookPageContent() {
         <div className="max-w-3xl mx-auto px-4 pt-8">
           <div className="flex items-center gap-3 bg-primary/5 border border-primary/20 px-5 py-4">
             {(() => {
-              const svc = SERVICES.find((s) => s.id === booking.service);
+              const svc = services.find((s) => s.slug === booking.service);
               if (!svc) return null;
-              const Icon = svc.icon;
               return (
                 <>
                   <div className="w-10 h-10 bg-primary/10 flex items-center justify-center shrink-0">
-                    <Icon className="text-primary" size={20} />
+                    <Wrench className="text-primary" size={20} />
                   </div>
                   <div>
                     <p className="text-[13px] text-[#5e5e5e]">Selected service</p>
-                    <p className="text-[16px] font-semibold text-black">{svc.label}</p>
+                    <p className="text-[16px] font-semibold text-black">{svc.name}</p>
                   </div>
                   <button
                     type="button"
@@ -401,36 +397,52 @@ function BookPageContent() {
             >
               Select a Service
             </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {SERVICES.map((service) => {
-                const Icon = service.icon;
-                const isSelected = booking.service === service.id;
-                return (
-                  <button
-                    key={service.id}
-                    onClick={() => updateBooking("service", service.id)}
-                    className={`p-6 border-2 rounded-none text-center transition-colors hover:border-primary ${
-                      isSelected
-                        ? "border-primary bg-red-50"
-                        : "border-gray-200"
-                    }`}
-                  >
-                    <Icon
-                      className={`w-8 h-8 mx-auto mb-3 ${
-                        isSelected ? "text-primary" : "text-gray-500"
-                      }`}
-                    />
-                    <span
-                      className={`text-sm font-medium ${
-                        isSelected ? "text-primary" : "text-gray-700"
+            {loadingServices ? (
+              <div className="flex items-center justify-center py-12">
+                <svg className="animate-spin h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                </svg>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {services.map((service) => {
+                  const isSelected = booking.service === service.slug;
+                  return (
+                    <button
+                      key={service.id}
+                      onClick={() => updateBooking("service", service.slug)}
+                      className={`p-6 border-2 rounded-none text-center transition-colors hover:border-primary ${
+                        isSelected
+                          ? "border-primary bg-red-50"
+                          : "border-gray-200"
                       }`}
                     >
-                      {service.label}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
+                      {service.image_url ? (
+                        <img
+                          src={service.image_url}
+                          alt={service.name}
+                          className="w-12 h-12 mx-auto mb-3 object-cover rounded"
+                        />
+                      ) : (
+                        <Wrench
+                          className={`w-8 h-8 mx-auto mb-3 ${
+                            isSelected ? "text-primary" : "text-gray-500"
+                          }`}
+                        />
+                      )}
+                      <span
+                        className={`text-sm font-medium ${
+                          isSelected ? "text-primary" : "text-gray-700"
+                        }`}
+                      >
+                        {service.name}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </div>
         )}
 

@@ -1,17 +1,27 @@
 import { Check } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
-const serviceItems = [
-  "Routine oil changes & full tune-ups",
-  "Professional brake & radiator services",
-  "Onsite diagnostics & AC repair",
-  "Pre-purchase inspections (PPI) for dealerships",
-  "Clutch, transmission & fuel pump repair",
-  "Specialized VW repair services",
-  "Preventative belt replacement",
-];
+interface Service {
+  id: number;
+  name: string;
+  slug: string;
+  description: string | null;
+  image_url: string | null;
+}
 
-export default function ServiceDetail() {
+async function getServices(): Promise<Service[]> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/services?per_page=50`, {
+    next: { revalidate: 60 },
+  });
+
+  if (!res.ok) return [];
+
+  const json = await res.json();
+  return json.data;
+}
+
+export default async function ServiceDetail() {
+  const services = await getServices();
   return (
     <section id="service-detail" className="py-20 bg-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10">
@@ -47,12 +57,12 @@ export default function ServiceDetail() {
                   What&apos;s included
                 </h3>
                 <ul className="space-y-3">
-                  {serviceItems.map((item) => (
-                    <li key={item} className="flex items-center gap-3">
+                  {services.map((service) => (
+                    <li key={service.id} className="flex items-center gap-3">
                       <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                         <Check className="text-primary" size={12} />
                       </div>
-                      <span className="text-[14px] text-[#5e5e5e]">{item}</span>
+                      <span className="text-[14px] text-[#5e5e5e]">{service.name}</span>
                     </li>
                   ))}
                 </ul>
@@ -74,22 +84,22 @@ export default function ServiceDetail() {
             <div className="grid grid-cols-2 gap-3">
               <div className="rounded-xl overflow-hidden h-[280px] group">
                 <img
-                  src="/gallery/work-01.jpeg"
-                  alt="Engine and transmission work"
+                  src={services[0]?.image_url || "/gallery/work-01.jpeg"}
+                  alt={services[0]?.name || "Engine and transmission work"}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="rounded-xl overflow-hidden h-[280px] group">
                 <img
-                  src="/gallery/work-08.jpeg"
-                  alt="Brake service"
+                  src={services[1]?.image_url || "/gallery/work-08.jpeg"}
+                  alt={services[1]?.name || "Brake service"}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="col-span-2 rounded-xl overflow-hidden h-[200px] group">
                 <img
-                  src="/gallery/work-20.jpeg"
-                  alt="Radiator repair"
+                  src={services[2]?.image_url || "/gallery/work-20.jpeg"}
+                  alt={services[2]?.name || "Radiator repair"}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
