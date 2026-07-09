@@ -224,6 +224,13 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <PageTransition>{children}</PageTransition>
+        <Script
+          id="housecall-pro-chat-bubble"
+          src="https://chat.housecallpro.com/proChat.js"
+          strategy="lazyOnload"
+          data-color="#ff0000"
+          data-organization="b029e138-644e-40c4-8988-f9cbb88dc0de"
+        />
       </body>
     </html>
   );
