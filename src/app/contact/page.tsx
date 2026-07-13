@@ -126,10 +126,10 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-semibold text-gray-900">Phone</h3>
                         <a
-                          href="tel:+14632498724"
+                          href="tel:+13176622514"
                           className="mt-1 text-gray-600 hover:text-primary transition-colors"
                         >
-                          (463) 249-8724
+                          (317) 662-2514
                         </a>
                       </div>
                     </div>
@@ -370,10 +370,10 @@ export default function ContactPage() {
               <p className="mt-8 text-center text-gray-400">
                 Don&apos;t see your area listed? Give us a call at{" "}
                 <a
-                  href="tel:+14632498724"
+                  href="tel:+13176622514"
                   className="text-primary hover:underline"
                 >
-                  (463) 249-8724
+                  (317) 662-2514
                 </a>{" "}
                  we may still be able to help!
               </p>

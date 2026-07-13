@@ -262,10 +262,10 @@ function BookPageContent() {
           <p className="text-center text-gray-500 mb-6">
             Questions? Call us at{" "}
             <a
-              href="tel:+14632498724"
+              href="tel:+13176622514"
               className="text-primary font-semibold hover:underline"
             >
-              (463) 249-8724
+              (317) 662-2514
             </a>
           </p>
 

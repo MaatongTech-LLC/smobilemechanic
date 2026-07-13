@@ -16,7 +16,7 @@ const faqCategories = [
       },
       {
         q: "How do I book an appointment?",
-        a: "You can book online through our website, call us directly at (463) 249-8724, or send us an email. We'll confirm your appointment within a few hours.",
+        a: "You can book online through our website, call us directly at (317) 662-2514, or send us an email. We'll confirm your appointment within a few hours.",
       },
       {
         q: "What are your hours of operation?",
@@ -174,10 +174,10 @@ export default function FAQPage() {
                   Contact us
                 </a>
                 <a
-                  href="tel:+14632498724"
+                  href="tel:+13176622514"
                   className="inline-flex items-center justify-center border border-white/30 hover:border-white text-white px-8 py-4 rounded-none text-[16px] font-medium transition-colors"
                 >
-                  (463) 249-8724
+                  (317) 662-2514
                 </a>
               </div>
             </ScrollReveal>
