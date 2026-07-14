@@ -31,7 +31,7 @@ const faqJsonLd = {
       name: "How do I book an appointment?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can book online through our website, call us directly at (463) 249-8724, or send us an email. We'll confirm your appointment within a few hours.",
+        text: "You can book online through our website, call us directly at (317) 662-2514, or send us an email. We'll confirm your appointment within a few hours.",
       },
     },
     {

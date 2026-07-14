@@ -162,7 +162,7 @@ export default function PrivacyPage() {
                   </p>
                   <ul className="mt-3 space-y-1 text-gray-600">
                     <li>Email: contact@smobilemechanic.com</li>
-                    <li>Phone: (463) 249-8724</li>
+                    <li>Phone: (317) 662-2514</li>
                     <li>Service Area: Greater Indianapolis, IN</li>
                   </ul>
                 </div>

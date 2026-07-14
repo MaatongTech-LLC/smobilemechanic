@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | Silverius Mobile Mechanic",
   },
   description:
-    "Indianapolis #1 mobile mechanic. We come to your home or office for oil changes, brake repair, engine diagnostics, tune-ups & more. ASE-quality service. Call (463) 249-8724.",
+    "Indianapolis #1 mobile mechanic. We come to your home or office for oil changes, brake repair, engine diagnostics, tune-ups & more. ASE-quality service. Call (317) 662-2514.",
   keywords: [
     "mobile mechanic Indianapolis",
     "mobile auto repair Indianapolis",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     siteName: "Silverius Mobile Mechanic",
     title: "Silverius Mobile Mechanic | Mobile Auto Repair Indianapolis, IN",
     description:
-      "Indianapolis trusted mobile mechanic. Professional auto repair at your location — oil changes, brakes, diagnostics, tune-ups & more. Call (463) 249-8724.",
+      "Indianapolis trusted mobile mechanic. Professional auto repair at your location — oil changes, brakes, diagnostics, tune-ups & more. Call (317) 662-2514.",
     images: [
       {
         url: "/og-image.jpg",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Silverius Mobile Mechanic | Mobile Auto Repair Indianapolis",
     description:
-      "We come to you! Professional mobile auto repair in Indianapolis & surrounding areas. Call (463) 249-8724.",
+      "We come to you! Professional mobile auto repair in Indianapolis & surrounding areas. Call (317) 662-2514.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -113,7 +113,7 @@ const localBusinessJsonLd = {
   description:
     "Professional mobile mechanic services in Indianapolis. We come to your home, office, or roadside for oil changes, brake repair, engine diagnostics, tune-ups, and more.",
   url: SITE_URL,
-  telephone: "+14632498724",
+  telephone: "+13176622514",
   email: "contact@smobilemechanic.com",
   image: `${SITE_URL}/og-image.jpg`,
   logo: `${SITE_URL}/logo.svg`,

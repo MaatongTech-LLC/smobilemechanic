@@ -182,7 +182,7 @@ export default async function ServicesPage() {
                   Book a service
                 </Link>
                 <a
-                  href="tel:+14632498724"
+                  href="tel:+13176622514"
                   className="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white text-white px-[22px] py-[16px] rounded-none text-[16px] font-medium transition-all h-[46px] hover:scale-105 active:scale-95"
                 >
                   <Phone size={16} />

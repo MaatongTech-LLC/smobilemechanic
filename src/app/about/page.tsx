@@ -321,10 +321,10 @@ export default function AboutPage() {
                     Book a Service
                   </a>
                   <a
-                    href="tel:+14632498724"
+                    href="tel:+13176622514"
                     className="inline-flex items-center justify-center border border-gray-200 hover:border-primary text-black hover:text-primary px-8 py-4 rounded-none text-[16px] font-medium transition-colors"
                   >
-                    Call (463) 249-8724
+                    Call (317) 662-2514
                   </a>
                 </div>
               </div>
