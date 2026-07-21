@@ -228,7 +228,7 @@ export default function RootLayout({
           id="housecall-pro-chat-bubble"
           src="https://chat.housecallpro.com/proChat.js"
           strategy="lazyOnload"
-          data-color="#ff0000"
+          data-color="#E30613"
           data-organization="b029e138-644e-40c4-8988-f9cbb88dc0de"
         />
       </body>

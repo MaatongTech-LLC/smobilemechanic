@@ -329,7 +329,7 @@ function BookPageContent() {
                       setCurrentStep(0);
                       setBooking((prev) => ({ ...prev, service: "" }));
                     }}
-                    className="ml-auto text-[13px] text-primary hover:underline font-medium"
+                    className="ml-auto text-[13px] text-primary hover:underline font-medium cursor-pointer"
                   >
                     Change
                   </button>
@@ -412,7 +412,7 @@ function BookPageContent() {
                     <button
                       key={service.id}
                       onClick={() => updateBooking("service", service.slug)}
-                      className={`p-6 border-2 rounded-none text-center transition-colors hover:border-primary ${
+                      className={`p-6 border-2 rounded-none text-center transition-colors hover:border-primary cursor-pointer ${
                         isSelected
                           ? "border-primary bg-red-50"
                           : "border-gray-200"
@@ -527,7 +527,7 @@ function BookPageContent() {
                     <button
                       key={time}
                       onClick={() => updateBooking("time", time)}
-                      className={`py-3 px-2 border-2 rounded-none text-sm font-medium transition-colors ${
+                      className={`py-3 px-2 border-2 rounded-none text-sm font-medium transition-colors cursor-pointer ${
                         booking.time === time
                           ? "border-primary bg-primary text-white"
                           : "border-gray-200 text-gray-700 hover:border-primary"
@@ -613,7 +613,7 @@ function BookPageContent() {
           {currentStep > 0 ? (
             <button
               onClick={handleBack}
-              className="flex items-center gap-2 border-2 border-gray-200 px-6 py-3 rounded-none font-medium text-gray-700 hover:border-gray-400 transition-colors"
+              className="flex items-center gap-2 border-2 border-gray-200 px-6 py-3 rounded-none font-medium text-gray-700 hover:border-gray-400 transition-colors cursor-pointer"
             >
               <ChevronLeft className="w-4 h-4" />
               Back
@@ -624,7 +624,7 @@ function BookPageContent() {
           <button
             onClick={handleNext}
             disabled={isSubmitting}
-            className="flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-none font-semibold hover:bg-red-700 transition-colors disabled:opacity-50"
+            className="flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-none font-semibold hover:bg-red-700 transition-colors disabled:opacity-50 cursor-pointer"
           >
             {isSubmitting ? "Submitting..." : currentStep === STEPS.length - 1 ? "Confirm Booking" : "Next"}
             {!isSubmitting && currentStep < STEPS.length - 1 && (
