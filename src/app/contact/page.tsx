@@ -5,6 +5,7 @@ import { Phone, Mail, Clock, MapPin, ChevronDown } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HousecallLeadForm from "@/components/HousecallLeadForm";
 
 const faqs = [
   {
@@ -304,6 +305,32 @@ export default function ContactPage() {
                 </div>
               </ScrollReveal>
             </div>
+          </div>
+        </section>
+
+        {/* Request a Quote  HouseCall Pro lead capture */}
+        <section className="bg-gray-50 py-16 md:py-24">
+          <div className="mx-auto max-w-4xl px-4">
+            <ScrollReveal>
+              <div className="text-center">
+                <h2
+                  className="text-3xl font-bold text-gray-900 md:text-4xl"
+                  style={{ fontFamily: "var(--font-tektur)" }}
+                >
+                  Request a Quote
+                </h2>
+                <p className="mt-4 text-gray-600">
+                  Tell us about your vehicle and we&apos;ll get back to you with
+                  a free, no-obligation estimate.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={100}>
+              <div className="mt-12 bg-white p-2 sm:p-4">
+                <HousecallLeadForm />
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
