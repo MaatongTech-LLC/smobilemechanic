@@ -36,47 +36,7 @@ const faqs = [
 ];
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const [submitError, setSubmitError] = useState("");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError("");
-    try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(formData),
-      });
-      if (!res.ok) {
-        const data = await res.json();
-        setSubmitError(data.message || "Something went wrong. Please try again.");
-      } else {
-        setSubmitted(true);
-        setFormData({ name: "", email: "", phone: "", message: "" });
-      }
-    } catch {
-      setSubmitError("Unable to connect. Please try again later.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <>
@@ -101,12 +61,32 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Contact Info + Form */}
+        {/* Request Service + Contact Info */}
         <section className="py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-4">
             <div className="grid gap-12 lg:grid-cols-2">
-              {/* Left: Contact Info */}
+              {/* Left: Request Service — HouseCall Pro lead form */}
               <ScrollReveal direction="left">
+                <div>
+                  <h2
+                    className="text-3xl font-bold text-gray-900 md:text-4xl"
+                    style={{ fontFamily: "var(--font-tektur)" }}
+                  >
+                    Request Service
+                  </h2>
+                  <p className="mt-4 text-gray-600">
+                    Tell us about your vehicle and we&apos;ll get back to you
+                    with a free, no-obligation estimate.
+                  </p>
+
+                  <div className="mt-8">
+                    <HousecallLeadForm />
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              {/* Right: Contact Info */}
+              <ScrollReveal direction="right">
                 <div>
                   <h2
                     className="text-3xl font-bold text-gray-900 md:text-4xl"
@@ -181,156 +161,7 @@ export default function ContactPage() {
                 </div>
               </ScrollReveal>
 
-              {/* Right: Contact Form */}
-              <ScrollReveal direction="right">
-                <div className="bg-gray-50 p-4 sm:p-6 md:p-10">
-                  <h2
-                    className="text-2xl font-bold text-gray-900"
-                    style={{ fontFamily: "var(--font-tektur)" }}
-                  >
-                    Send Us a Message
-                  </h2>
-                  <p className="mt-2 text-gray-600">
-                    Fill out the form below and we&apos;ll get back to you
-                    within 24 hours.
-                  </p>
-
-                  {submitted ? (
-                    <div className="mt-8 bg-green-50 border border-green-200 p-6 text-center">
-                      <p className="text-lg font-semibold text-green-800">
-                        Thank you for your message!
-                      </p>
-                      <p className="mt-2 text-green-700">
-                        We&apos;ll get back to you as soon as possible.
-                      </p>
-                      <button
-                        onClick={() => setSubmitted(false)}
-                        className="mt-4 text-primary hover:underline font-medium"
-                      >
-                        Send another message
-                      </button>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="mt-6 space-y-5">
-                      {submitError && (
-                        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 text-sm">
-                          {submitError}
-                        </div>
-                      )}
-                      <div>
-                        <label
-                          htmlFor="name"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          Full Name *
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleChange}
-                          className="mt-1 w-full border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary rounded-none"
-                          placeholder="John Doe"
-                        />
-                      </div>
-
-                      <div>
-                        <label
-                          htmlFor="email"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          required
-                          value={formData.email}
-                          onChange={handleChange}
-                          className="mt-1 w-full border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary rounded-none"
-                          placeholder="john@example.com"
-                        />
-                      </div>
-
-                      <div>
-                        <label
-                          htmlFor="phone"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          className="mt-1 w-full border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary rounded-none"
-                          placeholder="(555) 123-4567"
-                        />
-                      </div>
-
-                      <div>
-                        <label
-                          htmlFor="message"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          Message *
-                        </label>
-                        <textarea
-                          id="message"
-                          name="message"
-                          required
-                          rows={5}
-                          value={formData.message}
-                          onChange={handleChange}
-                          className="mt-1 w-full border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary rounded-none resize-none"
-                          placeholder="Describe your vehicle issue or question..."
-                        />
-                      </div>
-
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full bg-primary px-8 py-4 text-base font-bold text-white transition-colors hover:bg-primary-dark disabled:opacity-50 rounded-none cursor-pointer"
-                        style={{ fontFamily: "var(--font-tektur)" }}
-                      >
-                        {isSubmitting ? "Sending..." : "Send Message"}
-                      </button>
-                    </form>
-                  )}
-                </div>
-              </ScrollReveal>
             </div>
-          </div>
-        </section>
-
-        {/* Request a Quote  HouseCall Pro lead capture */}
-        <section className="bg-gray-50 py-16 md:py-24">
-          <div className="mx-auto max-w-4xl px-4">
-            <ScrollReveal>
-              <div className="text-center">
-                <h2
-                  className="text-3xl font-bold text-gray-900 md:text-4xl"
-                  style={{ fontFamily: "var(--font-tektur)" }}
-                >
-                  Request a Quote
-                </h2>
-                <p className="mt-4 text-gray-600">
-                  Tell us about your vehicle and we&apos;ll get back to you with
-                  a free, no-obligation estimate.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={100}>
-              <div className="mt-12 bg-white p-2 sm:p-4">
-                <HousecallLeadForm />
-              </div>
-            </ScrollReveal>
           </div>
         </section>
 
