@@ -17,6 +17,7 @@ export default function Header() {
     { href: "/gallery", label: "Our Work" },
     { href: "/book", label: "Book" },
     { href: "/faq", label: "FAQ" },
+    { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
   ];
 
