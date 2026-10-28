@@ -23,6 +23,7 @@ export default function Footer() {
       links: [
         { label: "Privacy Policy", href: "/privacy" },
         { label: "Terms of Service", href: "/terms" },
+        { label: "Text Message Policy", href: "/sms-policy" },
         { label: "FAQ", href: "/faq" },
         { label: "Contact us", href: "/contact" },
       ],
@@ -199,6 +200,12 @@ export default function Footer() {
               className={`text-[12px] ${isActive("/privacy") ? "text-primary font-medium" : "text-[#5e5e5e] hover:text-black"}`}
             >
               Privacy
+            </Link>
+            <Link
+              href="/sms-policy"
+              className={`text-[12px] ${isActive("/sms-policy") ? "text-primary font-medium" : "text-[#5e5e5e] hover:text-black"}`}
+            >
+              SMS Policy
             </Link>
           </div>
         </div>

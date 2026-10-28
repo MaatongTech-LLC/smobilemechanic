@@ -575,6 +575,17 @@ function BookPageContent() {
                   placeholder="(555) 123-4567"
                   className="w-full border border-gray-200 px-4 py-3 rounded-none outline-none focus:border-primary transition-colors"
                 />
+                <p className="mt-2 text-xs text-gray-500 leading-relaxed">
+                  By providing your phone number, you agree to receive text messages from Silverius Mobile Mechanic about your appointment and service. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. See our{" "}
+                  <Link href="/sms-policy" className="text-primary hover:underline">
+                    Text Message Policy
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="/privacy" className="text-primary hover:underline">
+                    Privacy Policy
+                  </Link>
+                  .
+                </p>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">

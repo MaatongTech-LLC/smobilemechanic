@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -27,7 +28,7 @@ export default function PrivacyPage() {
                 Privacy Policy
               </h1>
               <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
-                Last updated: May 27, 2026
+                Last updated: October 28, 2026
               </p>
             </ScrollReveal>
           </div>
@@ -92,7 +93,23 @@ export default function PrivacyPage() {
                     Information Sharing
                   </h2>
                   <p className="text-gray-600 leading-relaxed">
-                    We do not sell, trade, or rent your personal information to third parties. We may share information with trusted service providers who assist us in operating our business (e.g., payment processors, scheduling tools), but only to the extent necessary to perform their services. We may also disclose information when required by law or to protect our rights.
+                    We do not sell, trade, or rent your personal information to third parties, and we never share your mobile number or text messaging consent with third parties for their marketing purposes. We may share information with trusted service providers who assist us in operating our business (e.g., payment processors, scheduling tools), but only to the extent necessary to perform their services. We may also disclose information when required by law or to protect our rights.
+                  </p>
+                </div>
+
+                <div>
+                  <h2
+                    className="text-2xl font-bold text-gray-900 mb-4"
+                    style={{ fontFamily: "var(--font-tektur)" }}
+                  >
+                    Text Messaging (SMS)
+                  </h2>
+                  <p className="text-gray-600 leading-relaxed">
+                    If you provide your mobile number, we may send you text messages about your appointments, estimates, invoices, and service updates. No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties. You can reply STOP to opt out at any time or HELP for help. Message and data rates may apply. See our{" "}
+                    <Link href="/sms-policy" className="text-primary hover:underline">
+                      Text Message Policy
+                    </Link>{" "}
+                    for details.
                   </p>
                 </div>
 
